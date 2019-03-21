@@ -9,9 +9,13 @@ In this lab you'll go through the process of designing and creating a database. 
 
 You will be able to:
 
-* Objectives go here
-* Objectives go here
-* Objectives go here
+* Create a SQL database
+* Create a SQL table
+* Create rows in a SQL table
+* Alter entries in a SQL table
+* Delete entries in a SQL table
+* Commit changes via sqlite3
+
 
 ## The Scenario
 
