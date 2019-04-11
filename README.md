@@ -21,7 +21,7 @@ You will be able to:
 
 You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database and record some of your ideas below.
 
-# Your Answer Here
+## Your Answer Here
 
 Record some information here about how you would design such a database. What table would you include? What columns would each table have? What would be the primary means to join said tables?
 
