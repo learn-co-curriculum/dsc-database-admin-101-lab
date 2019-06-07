@@ -46,6 +46,10 @@ Create a table called contactInfo to house contact information for both students
 
 ```python
 #Your code here
+import pickle
+
+with open('contact_list.pickle', 'rb') as f:
+    contacts = pickle.load(f)
 ```
 
 ## Populate the Table
