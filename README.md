@@ -19,11 +19,7 @@ You will be able to:
 
 ## The Scenario
 
-You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database and record some of your ideas below.
-
-# Your Answer Here
-
-Record some information here about how you would design such a database. What table would you include? What columns would each table have? What would be the primary means to join said tables?
+You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database. What table would you include? What columns would each table have? What would be the primary means to join said tables?
 
 ## Creating the Database
 
@@ -451,10 +447,6 @@ cur.execute('''UPDATE contactInfo
 
 
 
-## Commit Your Changes to the Database
-
-Once again, persist your changes by committing them to the database.
-
 
 ```python
 # __SOLUTION__ 
@@ -575,14 +567,14 @@ df
 
 
 
+## Commit Your Changes to the Database
+
+Once again, persist your changes by committing them to the database.
+
 
 ```python
 #Your code here
 ```
-
-## Summary
-
-While there's certainly more to do with setting up and managing this database, you certainly got a taste for creating, populating and maintaining databases! Feel free to continue fleshing out this exercise to continue practicing. 
 
 
 ```python
@@ -590,3 +582,7 @@ While there's certainly more to do with setting up and managing this database, y
 #Your code here
 conn.commit()
 ```
+
+## Summary
+
+While there's certainly more to do with setting up and managing this database, you certainly got a taste for creating, populating and maintaining databases! Feel free to continue fleshing out this exercise to continue practicing. 
