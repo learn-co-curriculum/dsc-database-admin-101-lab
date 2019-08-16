@@ -3,7 +3,7 @@
 
 ## Introduction 
 
-In this lab you'll go through the process of designing and creating a database. From there, you'll also begin to populate this table with mock data provided to you.
+In this lab you'll go through the process of designing and creating a database. From there, you'll begin to populate this table with mock data provided to you.
 
 ## Objectives
 
@@ -19,7 +19,7 @@ You will be able to:
 
 ## The Scenario
 
-You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database. What table would you include? What columns would each table have? What would be the primary means to join said tables?
+You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database. What tables would you include? What columns would each table have? What would be the primary means to join said tables?
 
 ## Creating the Database
 
@@ -42,10 +42,6 @@ Create a table called contactInfo to house contact information for both students
 
 ```python
 #Your code here
-import pickle
-
-with open('contact_list.pickle', 'rb') as f:
-    contacts = pickle.load(f)
 ```
 
 ## Populate the Table
@@ -55,6 +51,10 @@ Below, code is provided for you in order to load a list of dictionaries. Briefly
 
 ```python
 # Code to load the list of dictionaries; just run this cell
+import pickle
+
+with open('contact_list.pickle', 'rb') as f:
+    contacts = pickle.load(f)
 ```
 
 
@@ -62,14 +62,11 @@ Below, code is provided for you in order to load a list of dictionaries. Briefly
 # Your code to iterate over the contact list and populate the contactInfo table here
 ```
 
-
-```python
-# Query the Table to Ensure it is populated
-```
+**Query the Table to Ensure it is populated**
 
 
 ```python
-#Your code here
+# Your code here 
 ```
 
 ## Commit Your Changes to the Database
@@ -123,11 +120,16 @@ An analyst just realized that there is a duplicate entry in the contactInfo tabl
 
 ## Updating an Address
 
-Ed Lyman just moved to 2910 Simpson Avenue York, PA 17403. Update his address accordingly.
+Ed Lyman just moved to `2910 Simpson Avenue York, PA 17403`. Update his address accordingly.
 
 
 ```python
 #Your code here; update Ed's address
+```
+
+
+```python
+#Your code here; Query the database to ensure the change was made
 ```
 
 ## Commit Your Changes to the Database
@@ -141,4 +143,4 @@ Once again, persist your changes by committing them to the database.
 
 ## Summary
 
-While there's certainly more to do with setting up and managing this database, you certainly got a taste for creating, populating and maintaining databases! Feel free to continue fleshing out this exercise to continue practicing. 
+While there's certainly more to do with setting up and managing this database, you got a taste for creating, populating, and maintaining databases! Feel free to continue fleshing out this exercise for more practice. 
