@@ -79,17 +79,10 @@ cur.execute("""CREATE TABLE contactInfo (
 ```
 
 
-    ---------------------------------------------------------------------------
 
-    OperationalError                          Traceback (most recent call last)
 
-    <ipython-input-6-652037b10904> in <module>
-         13                                         zipcode TEXT
-         14                                         );
-    ---> 15             """)
-    
+    <sqlite3.Cursor at 0x112a06500>
 
-    OperationalError: table contactInfo already exists
 
 
 ## Populate the Table
@@ -146,6 +139,141 @@ df.columns = [x[0] for x in cur.description]
 df
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>role</th>
+      <th>telephone</th>
+      <th>street</th>
+      <th>city</th>
+      <th>state</th>
+      <th>zipcode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Christine</td>
+      <td>Holden</td>
+      <td>staff</td>
+      <td>2035687697</td>
+      <td>1672 Whitman Court</td>
+      <td>Stamford</td>
+      <td>CT</td>
+      <td>06995</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Christopher</td>
+      <td>Warren</td>
+      <td>student</td>
+      <td>2175150957</td>
+      <td>1935 University Hill Road</td>
+      <td>Champaign</td>
+      <td>IL</td>
+      <td>61938</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Linda</td>
+      <td>Jacobson</td>
+      <td>staff</td>
+      <td>4049446441</td>
+      <td>479 Musgrave Street</td>
+      <td>Atlanta</td>
+      <td>GA</td>
+      <td>30303</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Andrew</td>
+      <td>Stepp</td>
+      <td>student</td>
+      <td>7866419252</td>
+      <td>2981 Lamberts Branch Road</td>
+      <td>Hialeah</td>
+      <td>Fl</td>
+      <td>33012</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Jane</td>
+      <td>Evans</td>
+      <td>student</td>
+      <td>3259909290</td>
+      <td>1461 Briarhill Lane</td>
+      <td>Abilene</td>
+      <td>TX</td>
+      <td>79602</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Jane</td>
+      <td>Evans</td>
+      <td>student</td>
+      <td>3259909290</td>
+      <td>1461 Briarhill Lane</td>
+      <td>Abilene</td>
+      <td>TX</td>
+      <td>79602</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Mary</td>
+      <td>Raines</td>
+      <td>student</td>
+      <td>9075772295</td>
+      <td>3975 Jerry Toth Drive</td>
+      <td>Ninilchik</td>
+      <td>AK</td>
+      <td>99639</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Ed</td>
+      <td>Lyman</td>
+      <td>student</td>
+      <td>5179695576</td>
+      <td>3478 Be Sreet</td>
+      <td>Lansing</td>
+      <td>MI</td>
+      <td>48933</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ## Commit Your Changes to the Database
 
 Persist your changes by committing them to the database.
@@ -196,6 +324,13 @@ cur.execute("""CREATE TABLE grades (
             """)
 ```
 
+
+
+
+    <sqlite3.Cursor at 0x112a06500>
+
+
+
 ## Remove Duplicate Entries
 
 An analyst just realized that there is a duplicate entry in the contactInfo table! Find and remove it.
@@ -216,6 +351,13 @@ cur.execute("""SELECT firstName, lastName, telephone, COUNT(*)
 ```
 
 
+
+
+    [('Jane', 'Evans', 3259909290, 2)]
+
+
+
+
 ```python
 #Your code here; delete the duplicate entry
 ```
@@ -226,6 +368,13 @@ cur.execute("""SELECT firstName, lastName, telephone, COUNT(*)
 #Your code here; delete the duplicate entry
 cur.execute('''DELETE FROM contactInfo WHERE telephone = 3259909290;''')
 ```
+
+
+
+
+    <sqlite3.Cursor at 0x112a06500>
+
+
 
 
 ```python
@@ -241,6 +390,13 @@ cur.execute("""SELECT firstName, lastName, telephone, COUNT(*)
                GROUP BY 1,2,3
                HAVING COUNT(*) > 1;""").fetchall()
 ```
+
+
+
+
+    []
+
+
 
 ## Updating an Address
 
@@ -265,6 +421,13 @@ cur.execute('''UPDATE contactInfo
 ```
 
 
+
+
+    <sqlite3.Cursor at 0x112a06500>
+
+
+
+
 ```python
 #Your code here; Query the database to ensure the change was made
 ```
@@ -278,6 +441,117 @@ df = pd.DataFrame(cur.fetchall())
 df.columns = [x[0] for x in cur.description]
 df
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>role</th>
+      <th>telephone</th>
+      <th>street</th>
+      <th>city</th>
+      <th>state</th>
+      <th>zipcode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Christine</td>
+      <td>Holden</td>
+      <td>staff</td>
+      <td>2035687697</td>
+      <td>1672 Whitman Court</td>
+      <td>Stamford</td>
+      <td>CT</td>
+      <td>06995</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Christopher</td>
+      <td>Warren</td>
+      <td>student</td>
+      <td>2175150957</td>
+      <td>1935 University Hill Road</td>
+      <td>Champaign</td>
+      <td>IL</td>
+      <td>61938</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Linda</td>
+      <td>Jacobson</td>
+      <td>staff</td>
+      <td>4049446441</td>
+      <td>479 Musgrave Street</td>
+      <td>Atlanta</td>
+      <td>GA</td>
+      <td>30303</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Andrew</td>
+      <td>Stepp</td>
+      <td>student</td>
+      <td>7866419252</td>
+      <td>2981 Lamberts Branch Road</td>
+      <td>Hialeah</td>
+      <td>Fl</td>
+      <td>33012</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7</td>
+      <td>Mary</td>
+      <td>Raines</td>
+      <td>student</td>
+      <td>9075772295</td>
+      <td>3975 Jerry Toth Drive</td>
+      <td>Ninilchik</td>
+      <td>AK</td>
+      <td>99639</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>8</td>
+      <td>Ed</td>
+      <td>Lyman</td>
+      <td>student</td>
+      <td>5179695576</td>
+      <td>2910 Simpson Avenue</td>
+      <td>York</td>
+      <td>PA</td>
+      <td>17403</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Commit Your Changes to the Database
 
