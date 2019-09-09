@@ -40,7 +40,7 @@ conn = sqlite3.Connection('school.sqlite')
 
 ## Create a Table for Contact Information
 
-Create a table called contactInfo to house contact information for both students and staff. Be sure to include columns for first name, last name, role (student/staff), email, telephone number, street, city, state and zipcode. Be sure to also create a primary key for the table. 
+Create a table called contactInfo to house contact information for both students and staff. Be sure to include columns for first name, last name, role (student/staff), telephone number, street, city, state and zipcode. Be sure to also create a primary key for the table. 
 
 
 ```python
