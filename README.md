@@ -3,7 +3,7 @@
 
 ## Introduction 
 
-In this lab you'll go through the process of designing and creating a database. From there, you'll begin to populate this table with mock data provided to you.
+In this lab, you'll go through the process of designing and creating a database. From there, you'll begin to populate this table with mock data provided to you.
 
 ## Objectives
 
@@ -19,7 +19,7 @@ You will be able to:
 
 ## The Scenario
 
-You are looking to design a database for a school which will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database. What tables would you include? What columns would each table have? What would be the primary means to join said tables?
+You are looking to design a database for a school that will house various information from student grades to contact information, class roster lists and attendance. First, think of how you would design such a database. What tables would you include? What columns would each table have? What would be the primary means to join said tables?
 
 ## Creating the Database
 
@@ -40,7 +40,7 @@ conn = sqlite3.Connection('school.sqlite')
 
 ## Create a Table for Contact Information
 
-Create a table called contactInfo to house contact information for both students and staff. Be sure to include columns for first name, last name, role (student/staff), telephone number, street, city, state and zipcode. Be sure to also create a primary key for the table. 
+Create a table called contactInfo to house contact information for both students and staff. Be sure to include columns for first name, last name, role (student/staff), telephone number, street, city, state, and zipcode. Be sure to also create a primary key for the table. 
 
 
 ```python
