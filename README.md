@@ -21,12 +21,14 @@ Now that you've put a little thought into how you might design your database, it
 
 
 ```python
-#Your code here; import necessary packages
+# Import necessary packages
+
 ```
 
 
 ```python
-#Your code here; create the database school.sqlite
+# Create the database school.sqlite 
+
 ```
 
 ## Create a Table for Contact Information
@@ -35,7 +37,7 @@ Create a table called contactInfo to house contact information for both students
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 ## Populate the Table
@@ -44,7 +46,7 @@ Below, code is provided for you in order to load a list of dictionaries. Briefly
 
 
 ```python
-# Code to load the list of dictionaries; just run this cell
+# Load the list of dictionaries; just run this cell
 import pickle
 
 with open('contact_list.pickle', 'rb') as f:
@@ -53,7 +55,8 @@ with open('contact_list.pickle', 'rb') as f:
 
 
 ```python
-# Your code to iterate over the contact list and populate the contactInfo table here
+# Iterate over the contact list and populate the contactInfo table here
+
 ```
 
 **Query the Table to Ensure it is populated**
@@ -61,6 +64,7 @@ with open('contact_list.pickle', 'rb') as f:
 
 ```python
 # Your code here 
+
 ```
 
 ## Commit Your Changes to the Database
@@ -69,7 +73,7 @@ Persist your changes by committing them to the database.
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 ## Create a Table for Student Grades
@@ -90,7 +94,8 @@ CREATE TABLE table_name(
 
 
 ```python
-#Your code here; create the grades table.
+# Create the grades table
+
 ```
 
 ## Remove Duplicate Entries
@@ -99,17 +104,20 @@ An analyst just realized that there is a duplicate entry in the contactInfo tabl
 
 
 ```python
-#Your code here; find the duplicate entry
+# Find the duplicate entry
+
 ```
 
 
 ```python
-#Your code here; delete the duplicate entry
+# Delete the duplicate entry
+
 ```
 
 
 ```python
-#Your code here; check that the duplicate entry was removed.
+# Check that the duplicate entry was removed
+
 ```
 
 ## Updating an Address
@@ -118,12 +126,14 @@ Ed Lyman just moved to `2910 Simpson Avenue York, PA 17403`. Update his address 
 
 
 ```python
-#Your code here; update Ed's address
+# Update Ed's address
+
 ```
 
 
 ```python
-#Your code here; Query the database to ensure the change was made
+# Query the database to ensure the change was made
+
 ```
 
 ## Commit Your Changes to the Database
@@ -132,7 +142,7 @@ Once again, persist your changes by committing them to the database.
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 ## Summary
