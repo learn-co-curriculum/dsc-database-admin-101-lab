@@ -21,26 +21,28 @@ Now that you've put a little thought into how you might design your database, it
 
 
 ```python
-#Your code here; import necessary packages
+# Import necessary packages
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; import necessary packages
+# Import necessary packages
 import sqlite3
 import pandas as pd
 ```
 
 
 ```python
-#Your code here; create the database school.sqlite
+# Create the database school.sqlite 
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; create the database school.sqlite
+# Create the database school.sqlite
 conn = sqlite3.Connection('school.sqlite')
 ```
 
@@ -50,13 +52,12 @@ Create a table called contactInfo to house contact information for both students
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here
 cur = conn.cursor()
 cur.execute("""CREATE TABLE contactInfo (
                                         userId INTEGER PRIMARY KEY,
@@ -75,7 +76,7 @@ cur.execute("""CREATE TABLE contactInfo (
 
 
 
-    <sqlite3.Cursor at 0x112a06500>
+    <sqlite3.Cursor at 0x11c60e340>
 
 
 
@@ -85,7 +86,7 @@ Below, code is provided for you in order to load a list of dictionaries. Briefly
 
 
 ```python
-# Code to load the list of dictionaries; just run this cell
+# Load the list of dictionaries; just run this cell
 import pickle
 
 with open('contact_list.pickle', 'rb') as f:
@@ -94,13 +95,24 @@ with open('contact_list.pickle', 'rb') as f:
 
 
 ```python
-# Your code to iterate over the contact list and populate the contactInfo table here
+# __SOLUTION__ 
+# Load the list of dictionaries; just run this cell
+import pickle
+
+with open('contact_list.pickle', 'rb') as f:
+    contacts = pickle.load(f)
+```
+
+
+```python
+# Iterate over the contact list and populate the contactInfo table here
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-# Your code to iterate over the contact list and populate the contactInfo table here
+# Iterate over the contact list and populate the contactInfo table here
 for contact in contacts:
     firstName = contact['firstName']
     lastName = contact['lastName']
@@ -120,14 +132,14 @@ for contact in contacts:
 
 ```python
 # Your code here 
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-# Your code here
-
-cur.execute("""SELECT * FROM contactInfo;""")
+cur.execute("""SELECT * 
+               FROM contactInfo;""")
 df = pd.DataFrame(cur.fetchall())
 df.columns = [x[0] for x in cur.description]
 df
@@ -274,13 +286,12 @@ Persist your changes by committing them to the database.
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here
 conn.commit()
 ```
 
@@ -302,13 +313,14 @@ CREATE TABLE table_name(
 
 
 ```python
-#Your code here; create the grades table.
+# Create the grades table
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; create the grades table.
+# Create the grades table
 cur.execute("""CREATE TABLE grades (
                                     userId INTEGER NOT NULL,
                                     courseId INTEGER NOT NULL,
@@ -321,7 +333,7 @@ cur.execute("""CREATE TABLE grades (
 
 
 
-    <sqlite3.Cursor at 0x112a06500>
+    <sqlite3.Cursor at 0x11c60e340>
 
 
 
@@ -331,16 +343,17 @@ An analyst just realized that there is a duplicate entry in the contactInfo tabl
 
 
 ```python
-#Your code here; find the duplicate entry
+# Find the duplicate entry
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; find the duplicate entry
+# Find the duplicate entry
 cur.execute("""SELECT firstName, lastName, telephone, COUNT(*) 
                FROM contactInfo
-               GROUP BY 1,2,3
+               GROUP BY firstName, lastName, telephone
                HAVING COUNT(*) > 1;""").fetchall()
 ```
 
@@ -353,35 +366,38 @@ cur.execute("""SELECT firstName, lastName, telephone, COUNT(*)
 
 
 ```python
-#Your code here; delete the duplicate entry
+# Delete the duplicate entry
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; delete the duplicate entry
-cur.execute('''DELETE FROM contactInfo WHERE telephone = 3259909290;''')
+# Delete the duplicate entry
+cur.execute("""DELETE FROM contactInfo 
+               WHERE telephone = 3259909290;""")
 ```
 
 
 
 
-    <sqlite3.Cursor at 0x112a06500>
+    <sqlite3.Cursor at 0x11c60e340>
 
 
 
 
 ```python
-#Your code here; check that the duplicate entry was removed.
+# Check that the duplicate entry was removed
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; check that the duplicate entry was removed.
+# Check that the duplicate entry was removed 
 cur.execute("""SELECT firstName, lastName, telephone, COUNT(*) 
                FROM contactInfo
-               GROUP BY 1,2,3
+               GROUP BY firstName, lastName, telephone
                HAVING COUNT(*) > 1;""").fetchall()
 ```
 
@@ -398,39 +414,41 @@ Ed Lyman just moved to `2910 Simpson Avenue York, PA 17403`. Update his address 
 
 
 ```python
-#Your code here; update Ed's address
+# Update Ed's address
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; update Ed's address
-cur.execute('''UPDATE contactInfo
+# Update Ed's address
+cur.execute("""UPDATE contactInfo
                SET street = "2910 Simpson Avenue",
                    city = 'York',
                    state = 'PA',
                    zipcode = '17403'
-               WHERE firstName = "Ed" AND lastName = "Lyman";
-            ''')
+               WHERE firstName = "Ed" AND lastName = "Lyman";""")
 ```
 
 
 
 
-    <sqlite3.Cursor at 0x112a06500>
+    <sqlite3.Cursor at 0x11c60e340>
 
 
 
 
 ```python
-#Your code here; Query the database to ensure the change was made
+# Query the database to ensure the change was made
+
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here; Query the database to ensure the change was made
-cur.execute("""SELECT * FROM contactInfo;""")
+# Query the database to ensure the change was made
+cur.execute("""SELECT * 
+               FROM contactInfo;""")
 df = pd.DataFrame(cur.fetchall())
 df.columns = [x[0] for x in cur.description]
 df
@@ -553,13 +571,12 @@ Once again, persist your changes by committing them to the database.
 
 
 ```python
-#Your code here
+# Your code here
 ```
 
 
 ```python
 # __SOLUTION__ 
-#Your code here
 conn.commit()
 ```
 
